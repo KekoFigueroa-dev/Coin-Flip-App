@@ -7,13 +7,32 @@ print("Welcome to my Coin Toss App")
 print("\\nI will flip a coin a set number of times.")
 
 # Get the number of flips from the user
-flip_number = int(input("How many times would you like me to flip the coin: "))
+while True:
+    try:
+        flip_number = int(input("How many times would you like me to flip the coin: "))
+        if flip_number > 0:
+            print("Thank you!")
+            break
+        else:
+            print("Please enter a number greater than 0.")
+    except ValueError:
+        print("Please enter a valid whole number")
 
 # Ask the user if they want to see the result of each individual flip
-choice = input("Would you like to see the result of each flip (y/n): ").lower()
+while True:
+        try:
+            choice = input("Would you like to see the result of each flip (y/n): ").lower()
+            if choice == ("y") or choice == ("n"):
+                break
+            else:
+                print("Please enter y or n!")
+        except Exception as e:
+            print(f"An error occurred!: {e}")
 
-# --- Initialize Counters for Heads and Tails ---
-# Set up variables to keep track of how many heads and tails are flipped
+print(flip_number)
+print(choice)
+
+# --- Initialized Counters for Heads and Tails ---
 heads_count = 0
 tails_count = 0
 
